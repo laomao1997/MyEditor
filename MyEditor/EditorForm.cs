@@ -38,10 +38,21 @@ namespace MyEditor
             {
                 if ((stream = openFileDialog.OpenFile()) != null)
                 {
-                    string fileName = openFileDialog.FileName;
-                    // string fileText = File.ReadAllText(fileName);
-                    // MessageBox.Show(fileName);
-                    richTextBox1.LoadFile(fileName);
+                    string filePath = openFileDialog.FileName;
+                    string suffixName = filePath.Substring(filePath.IndexOf(".")+1);
+                    if (suffixName.Equals("rtf"))
+                    {
+                        richTextBox1.LoadFile(openFileDialog.FileName);
+                    }
+                    else if (suffixName.Equals("txt"))
+                    {
+                        string fileText = File.ReadAllText(filePath);
+                        richTextBox1.Text = fileText;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Unsupported file.");
+                    }
                 }
             }
         }
@@ -51,7 +62,15 @@ namespace MyEditor
          */
         private void doBold()
         {
-            richTextBox1.SelectionFont = new Font(this.Font, FontStyle.Bold);
+            Font font = this.richTextBox1.SelectionFont;
+            if (font.Bold)
+            {
+                richTextBox1.SelectionFont = new Font(this.Font, FontStyle.Regular);
+            }
+            else
+            {
+                richTextBox1.SelectionFont = new Font(this.Font, FontStyle.Bold);
+            }
         }
 
         /**
