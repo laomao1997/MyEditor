@@ -17,6 +17,23 @@ namespace MyEditor
 
     {
 
+        private void doLogin()
+        {
+            string username = textBoxUsername.Text;
+            string password = textBoxPassword.Text;
+            Users users = new Users();
+            if (users.IsUserExist(username, password) && username != "" && password != "")
+            {
+                Form editorForm = new EditorForm(username);
+                editorForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Login Failure (unknown username or incorrect password)");
+            }
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -31,34 +48,29 @@ namespace MyEditor
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             System.Environment.Exit(0);
+            Application.Exit();
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            string username = textBoxUsername.Text;
-            string password = textBoxPassword.Text;
-            Users users = new Users();
-            if (users.IsUserExist(username, password) && username!="" && password!="")
-            {
-                Form editorForm = new ChildForm();
-                editorForm.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Login Failure (unknown username or incorrect password)");
-            }
+            doLogin();
         }
 
         private void buttonNewUser_Click(object sender, EventArgs e)
         {
             Form regForm = new RegForm();
             regForm.Show();
+            this.Hide();
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
             System.Environment.Exit(0);
+        }
+
+        private void labelUsername_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -130,6 +130,9 @@
   <data name="icons8_file_filled_50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\icons8-file-filled-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8_help_filled_50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-help-filled-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8_italic_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\icons8-italic-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

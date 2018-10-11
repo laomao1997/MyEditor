@@ -33,25 +33,28 @@
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.buttonNewUser = new System.Windows.Forms.Button();
-            this.buttonLogin = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
+            this.buttonLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelUsername
             // 
             this.labelUsername.AutoSize = true;
-            this.labelUsername.Location = new System.Drawing.Point(80, 34);
+            this.labelUsername.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelUsername.Location = new System.Drawing.Point(80, 29);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(71, 15);
+            this.labelUsername.Size = new System.Drawing.Size(82, 20);
             this.labelUsername.TabIndex = 0;
             this.labelUsername.Text = "Username";
+            this.labelUsername.Click += new System.EventHandler(this.labelUsername_Click);
             // 
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Location = new System.Drawing.Point(80, 92);
+            this.labelPassword.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelPassword.Location = new System.Drawing.Point(80, 87);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(71, 15);
+            this.labelPassword.Size = new System.Drawing.Size(78, 20);
             this.labelPassword.TabIndex = 1;
             this.labelPassword.Text = "Password";
             // 
@@ -66,11 +69,13 @@
             // 
             this.textBoxPassword.Location = new System.Drawing.Point(83, 110);
             this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(262, 25);
             this.textBoxPassword.TabIndex = 3;
             // 
             // buttonNewUser
             // 
+            this.buttonNewUser.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonNewUser.Location = new System.Drawing.Point(83, 202);
             this.buttonNewUser.Name = "buttonNewUser";
             this.buttonNewUser.Size = new System.Drawing.Size(100, 32);
@@ -79,18 +84,9 @@
             this.buttonNewUser.UseVisualStyleBackColor = true;
             this.buttonNewUser.Click += new System.EventHandler(this.buttonNewUser_Click);
             // 
-            // buttonLogin
-            // 
-            this.buttonLogin.Location = new System.Drawing.Point(83, 164);
-            this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(262, 32);
-            this.buttonLogin.TabIndex = 5;
-            this.buttonLogin.Text = "Login";
-            this.buttonLogin.UseVisualStyleBackColor = true;
-            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
-            // 
             // buttonExit
             // 
+            this.buttonExit.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonExit.Location = new System.Drawing.Point(242, 202);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(103, 32);
@@ -98,6 +94,17 @@
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            // 
+            // buttonLogin
+            // 
+            this.buttonLogin.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonLogin.Location = new System.Drawing.Point(83, 164);
+            this.buttonLogin.Name = "buttonLogin";
+            this.buttonLogin.Size = new System.Drawing.Size(262, 32);
+            this.buttonLogin.TabIndex = 5;
+            this.buttonLogin.Text = "Login";
+            this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // Form1
             // 
@@ -116,6 +123,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Login - MyEditor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -129,8 +137,8 @@
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Button buttonNewUser;
-        private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.Button buttonExit;
+        private System.Windows.Forms.Button buttonLogin;
     }
 }
 

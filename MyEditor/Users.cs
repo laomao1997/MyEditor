@@ -19,12 +19,16 @@ namespace MyEditor
 
         public void Initial()
         {
-            StreamReader file = new StreamReader("login.txt");
-            string line;
-            while ((line = file.ReadLine()) != null)
+            usersList.Clear();
+            using(StreamReader file = new StreamReader("login.txt"))
             {
-                usersList.Add(line);
+                string line;
+                while ((line = file.ReadLine()) != null)
+                {
+                    usersList.Add(line);
+                }
             }
+            
         }
 
         public bool IsUserExist(string u, string p)
@@ -38,6 +42,15 @@ namespace MyEditor
                 }
             }
             return isExist;
+        }
+
+        public void AddUser(string username, string password, string fName, string sName, string doBirth, string uType)
+        {
+            string line = username + "," + password + "," + uType + "," + fName + "," + sName + "," + doBirth;
+            using (StreamWriter writer = new StreamWriter("login.txt", true))
+            {
+                writer.WriteLine("\n" + line);
+            }
         }
 
         public String ShowUsers(string u, string p)

@@ -38,13 +38,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.buttonSubmit = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBoxUsername = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.textBoxPassword2 = new System.Windows.Forms.TextBox();
+            this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
+            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
+            this.textBoxFirstName = new System.Windows.Forms.TextBox();
+            this.textBoxLastName = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,13 +65,13 @@
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.buttonSubmit, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.button2, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox3, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textBox4, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.textBox5, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox1, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxUsername, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxPassword, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxPassword2, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.metroDateTime1, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.metroComboBox1, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxFirstName, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxLastName, 1, 4);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
@@ -83,11 +83,12 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(425, 290);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(425, 325);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
             // 
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(169, 34);
@@ -97,7 +98,8 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(3, 34);
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 39);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(169, 34);
             this.label2.TabIndex = 1;
@@ -106,7 +108,8 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(3, 68);
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(169, 34);
             this.label3.TabIndex = 2;
@@ -115,7 +118,8 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(3, 102);
+            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 117);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(169, 34);
             this.label4.TabIndex = 3;
@@ -124,7 +128,8 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(3, 136);
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 156);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(169, 34);
             this.label5.TabIndex = 4;
@@ -133,7 +138,8 @@
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(3, 170);
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(3, 195);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(169, 34);
             this.label6.TabIndex = 5;
@@ -142,7 +148,8 @@
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(3, 204);
+            this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(3, 234);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(169, 34);
             this.label7.TabIndex = 6;
@@ -152,7 +159,8 @@
             // buttonSubmit
             // 
             this.buttonSubmit.Dock = System.Windows.Forms.DockStyle.Left;
-            this.buttonSubmit.Location = new System.Drawing.Point(3, 241);
+            this.buttonSubmit.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonSubmit.Location = new System.Drawing.Point(3, 276);
             this.buttonSubmit.Name = "buttonSubmit";
             this.buttonSubmit.Size = new System.Drawing.Size(169, 46);
             this.buttonSubmit.TabIndex = 7;
@@ -163,75 +171,92 @@
             // button2
             // 
             this.button2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button2.Location = new System.Drawing.Point(252, 241);
+            this.button2.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.Location = new System.Drawing.Point(252, 276);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(170, 46);
             this.button2.TabIndex = 8;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // textBox1
+            // textBoxUsername
             // 
-            this.textBox1.Location = new System.Drawing.Point(178, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(244, 25);
-            this.textBox1.TabIndex = 9;
+            this.textBoxUsername.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBoxUsername.Location = new System.Drawing.Point(178, 3);
+            this.textBoxUsername.Name = "textBoxUsername";
+            this.textBoxUsername.Size = new System.Drawing.Size(244, 27);
+            this.textBoxUsername.TabIndex = 9;
             // 
-            // textBox2
+            // textBoxPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(178, 37);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(244, 25);
-            this.textBox2.TabIndex = 10;
+            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBoxPassword.Location = new System.Drawing.Point(178, 42);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
+            this.textBoxPassword.Size = new System.Drawing.Size(244, 27);
+            this.textBoxPassword.TabIndex = 10;
             // 
-            // textBox3
+            // textBoxPassword2
             // 
-            this.textBox3.Location = new System.Drawing.Point(178, 71);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(244, 25);
-            this.textBox3.TabIndex = 11;
+            this.textBoxPassword2.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBoxPassword2.Location = new System.Drawing.Point(178, 81);
+            this.textBoxPassword2.Name = "textBoxPassword2";
+            this.textBoxPassword2.PasswordChar = '*';
+            this.textBoxPassword2.Size = new System.Drawing.Size(244, 27);
+            this.textBoxPassword2.TabIndex = 11;
             // 
-            // textBox4
+            // metroDateTime1
             // 
-            this.textBox4.Location = new System.Drawing.Point(178, 105);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(244, 25);
-            this.textBox4.TabIndex = 12;
+            this.metroDateTime1.CustomFormat = "dd-MM-yyyy";
+            this.metroDateTime1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroDateTime1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.metroDateTime1.Location = new System.Drawing.Point(178, 198);
+            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 27);
+            this.metroDateTime1.Name = "metroDateTime1";
+            this.metroDateTime1.Size = new System.Drawing.Size(244, 27);
+            this.metroDateTime1.TabIndex = 16;
             // 
-            // textBox5
+            // metroComboBox1
             // 
-            this.textBox5.Location = new System.Drawing.Point(178, 139);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(244, 25);
-            this.textBox5.TabIndex = 13;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(178, 173);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(244, 25);
-            this.dateTimePicker1.TabIndex = 14;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.metroComboBox1.FormattingEnabled = true;
+            this.metroComboBox1.ItemHeight = 21;
+            this.metroComboBox1.Items.AddRange(new object[] {
             "Edit",
             "View"});
-            this.comboBox1.Location = new System.Drawing.Point(178, 207);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(244, 23);
-            this.comboBox1.TabIndex = 15;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.metroComboBox1.Location = new System.Drawing.Point(178, 237);
+            this.metroComboBox1.Name = "metroComboBox1";
+            this.metroComboBox1.Size = new System.Drawing.Size(244, 27);
+            this.metroComboBox1.TabIndex = 17;
+            this.metroComboBox1.UseSelectable = true;
+            // 
+            // textBoxFirstName
+            // 
+            this.textBoxFirstName.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBoxFirstName.Location = new System.Drawing.Point(178, 120);
+            this.textBoxFirstName.Name = "textBoxFirstName";
+            this.textBoxFirstName.Size = new System.Drawing.Size(244, 27);
+            this.textBoxFirstName.TabIndex = 18;
+            // 
+            // textBoxLastName
+            // 
+            this.textBoxLastName.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBoxLastName.Location = new System.Drawing.Point(178, 159);
+            this.textBoxLastName.Name = "textBoxLastName";
+            this.textBoxLastName.Size = new System.Drawing.Size(244, 27);
+            this.textBoxLastName.TabIndex = 19;
             // 
             // RegForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(449, 314);
+            this.ClientSize = new System.Drawing.Size(449, 349);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "RegForm";
             this.Text = "New User - MyEditor";
+            this.Load += new System.EventHandler(this.RegForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -250,12 +275,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button buttonSubmit;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBoxUsername;
+        private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.TextBox textBoxPassword2;
+        private MetroFramework.Controls.MetroDateTime metroDateTime1;
+        private MetroFramework.Controls.MetroComboBox metroComboBox1;
+        private System.Windows.Forms.TextBox textBoxFirstName;
+        private System.Windows.Forms.TextBox textBoxLastName;
     }
 }
