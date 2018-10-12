@@ -63,6 +63,7 @@
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripComboBox2 = new System.Windows.Forms.ToolStripComboBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.metroPanel1.SuspendLayout();
@@ -122,8 +123,9 @@
             // 
             this.saveToolStripMenuItem.Image = global::MyEditor.Properties.Resources.icons8_save_filled_50;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.saveToolStripMenuItem.Text = "Save     Ctrl+S";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
@@ -205,6 +207,7 @@
             this.toolStripButton5,
             this.toolStripButton6,
             this.toolStripButton7,
+            this.toolStripComboBox2,
             this.toolStripComboBox1,
             this.toolStripButton8,
             this.toolStripSeparator4,
@@ -212,7 +215,8 @@
             this.toolStripSeparator5});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(912, 28);
+            this.toolStrip1.Padding = new System.Windows.Forms.Padding(1);
+            this.toolStrip1.Size = new System.Drawing.Size(912, 30);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -245,6 +249,7 @@
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(24, 25);
             this.toolStripButton3.Text = "Save";
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripButton4
             // 
@@ -254,6 +259,7 @@
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(24, 25);
             this.toolStripButton4.Text = "Save As";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // toolStripSeparator3
             // 
@@ -306,8 +312,11 @@
             "18",
             "19",
             "20"});
+            this.toolStripComboBox1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(150, 28);
+            this.toolStripComboBox1.Size = new System.Drawing.Size(75, 28);
+            this.toolStripComboBox1.Text = "9";
+            this.toolStripComboBox1.ToolTipText = "Font size";
             this.toolStripComboBox1.TextChanged += new System.EventHandler(this.toolStripComboBox1_TextChanged);
             // 
             // toolStripButton8
@@ -318,6 +327,7 @@
             this.toolStripButton8.Name = "toolStripButton8";
             this.toolStripButton8.Size = new System.Drawing.Size(24, 25);
             this.toolStripButton8.Text = "About";
+            this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click);
             // 
             // toolStripSeparator4
             // 
@@ -379,10 +389,10 @@
             this.toolStripButton9,
             this.toolStripButton10,
             this.toolStripButton11});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 56);
+            this.toolStrip2.Location = new System.Drawing.Point(0, 58);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip2.Size = new System.Drawing.Size(30, 477);
+            this.toolStrip2.Size = new System.Drawing.Size(30, 475);
             this.toolStrip2.TabIndex = 4;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -412,6 +422,18 @@
             this.toolStripButton11.Name = "toolStripButton11";
             this.toolStripButton11.Size = new System.Drawing.Size(27, 29);
             this.toolStripButton11.Text = "Paste";
+            // 
+            // toolStripComboBox2
+            // 
+            this.toolStripComboBox2.Items.AddRange(new object[] {
+            "Consolas",
+            "Times New Roman",
+            "Arial"});
+            this.toolStripComboBox2.Margin = new System.Windows.Forms.Padding(4, 0, 1, 0);
+            this.toolStripComboBox2.Name = "toolStripComboBox2";
+            this.toolStripComboBox2.Size = new System.Drawing.Size(140, 28);
+            this.toolStripComboBox2.Text = "Consolas";
+            this.toolStripComboBox2.TextChanged += new System.EventHandler(this.toolStripComboBox2_TextChanged);
             // 
             // EditorForm
             // 
@@ -476,5 +498,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton10;
         private System.Windows.Forms.ToolStripButton toolStripButton11;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox2;
     }
 }

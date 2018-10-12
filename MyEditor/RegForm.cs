@@ -34,10 +34,22 @@ namespace MyEditor
                 string doBirth = metroDateTime1.Text;
                 string userType = metroComboBox1.Text;
                 newUserInfo = "Registration success!\nWelcome " + firstName + lastName + ".\nYour user type is: " + userType + ".";
-                DialogResult dialog = MessageBox.Show(newUserInfo, "Registration Success");
                 Users users = new Users();
-                users.AddUser(username, password, firstName, lastName, doBirth, userType);
-                if(dialog == DialogResult.OK) this.Hide();
+                if (!users.IsUserExist(username))
+                {
+                    DialogResult dialog = MessageBox.Show(newUserInfo, "Registration Success");
+                    users.AddUser(username, password, firstName, lastName, doBirth, userType);
+                    if (dialog == DialogResult.OK)
+                    {
+                        this.Hide();
+                        var loginForm = new Form1();
+                        loginForm.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("User already exist!");
+                }
             }
             
         }

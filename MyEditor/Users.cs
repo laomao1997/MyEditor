@@ -20,6 +20,15 @@ namespace MyEditor
         public void Initial()
         {
             usersList.Clear();
+            if (!File.Exists("login.txt"))
+            {
+                //不存在就新建一个文本文件,并写入一些内容
+                using (StreamWriter sw = File.CreateText("login.txt"))
+                {
+                    sw.WriteLine("");
+                }
+                
+            }
             using(StreamReader file = new StreamReader("login.txt"))
             {
                 string line;
@@ -37,6 +46,19 @@ namespace MyEditor
             foreach (var VARIABLE in usersList)
             {
                 if (VARIABLE.ToString().Contains(u + "," + p)) 
+                {
+                    isExist = true;
+                }
+            }
+            return isExist;
+        }
+
+        public bool IsUserExist(string u)
+        {
+            bool isExist = false;
+            foreach (var VARIABLE in usersList)
+            {
+                if (VARIABLE.ToString().Contains(u))
                 {
                     isExist = true;
                 }
