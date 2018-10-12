@@ -72,12 +72,5 @@ namespace MyEditor
         {
 
         }
-
-        private void metroButton1_Click(object sender, EventArgs e)
-        {
-            Form editorForm = new EditorForm("test");
-            editorForm.Show();
-            this.Hide();
-        }
     }
 }

@@ -432,7 +432,6 @@
             this.toolStripComboBox2.Margin = new System.Windows.Forms.Padding(4, 0, 1, 0);
             this.toolStripComboBox2.Name = "toolStripComboBox2";
             this.toolStripComboBox2.Size = new System.Drawing.Size(140, 28);
-            this.toolStripComboBox2.Text = "Consolas";
             this.toolStripComboBox2.TextChanged += new System.EventHandler(this.toolStripComboBox2_TextChanged);
             // 
             // EditorForm

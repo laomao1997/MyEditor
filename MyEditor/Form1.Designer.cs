@@ -35,7 +35,6 @@
             this.buttonNewUser = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonLogin = new System.Windows.Forms.Button();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // labelUsername
@@ -107,22 +106,11 @@
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
-            // metroButton1
-            // 
-            this.metroButton1.Location = new System.Drawing.Point(87, 242);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(258, 23);
-            this.metroButton1.TabIndex = 7;
-            this.metroButton1.Text = "Login without Auth";
-            this.metroButton1.UseSelectable = true;
-            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(430, 277);
-            this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.buttonNewUser);
@@ -151,7 +139,6 @@
         private System.Windows.Forms.Button buttonNewUser;
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Button buttonLogin;
-        private MetroFramework.Controls.MetroButton metroButton1;
     }
 }
 
