@@ -240,7 +240,32 @@ namespace MyEditor
             richTextBox1.SelectedRtf = tempRichTextBox.SelectedRtf;
             richTextBox1.Select(curRtbStart, len);
             richTextBox1.Focus();
-        }  
+        }
+
+        /// <summary>
+        /// Cut text from RichTextBox to Clipboard
+        /// </summary>
+        private void DoCut()
+        {
+            Clipboard.SetData(DataFormats.Rtf, richTextBox1.SelectedRtf);
+            richTextBox1.SelectedRtf = "";
+        }
+
+        /// <summary>
+        /// Copy text from RichTextBox to Clipboard
+        /// </summary>
+        private void DoCopy()
+        {
+            Clipboard.SetData(DataFormats.Rtf, richTextBox1.SelectedRtf);
+        }
+
+        /// <summary>
+        /// Paste text to RichTextBox from Clipboard
+        /// </summary>
+        private void DoPaste()
+        {
+            richTextBox1.Paste();
+        }
 
         public EditorForm(string username)
         {
@@ -337,6 +362,55 @@ namespace MyEditor
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             saveAsFile();
+        }
+
+        private void toolStripButton9_Click(object sender, EventArgs e)
+        {
+            DoCut();
+        }
+
+        private void toolStripButton10_Click(object sender, EventArgs e)
+        {
+            DoCopy();
+        }
+
+        private void toolStripButton11_Click(object sender, EventArgs e)
+        {
+            DoPaste();
+        }
+
+        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DoCut();
+        }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DoCopy();
+        }
+
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DoPaste();
+        }
+
+        private void EditorForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.N)       // Ctrl-S Save
+            {
+                newFile();
+                e.SuppressKeyPress = true;  // Stops other controls on the form receiving event.
+            }
+            if (e.Control && e.KeyCode == Keys.O)       // Ctrl-S Save
+            {
+                openFile();
+                e.SuppressKeyPress = true;  // Stops other controls on the form receiving event.
+            }
+            if (e.Control && e.KeyCode == Keys.S)       // Ctrl-S Save
+            {
+                saveFile();
+                e.SuppressKeyPress = true;  // Stops other controls on the form receiving event.
+            }
         }
     }
 }
