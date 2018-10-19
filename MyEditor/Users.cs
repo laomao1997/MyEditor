@@ -5,7 +5,20 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/*
+---------------------------------------------------------------------------------------------------------------
+|    User                                                                                                     |
+---------------------------------------------------------------------------------------------------------------
+| - usersList: ArrayList                                                                                      |
+---------------------------------------------------------------------------------------------------------------
+| + Initial()                                                                                                 |
+| + IsUserExist(u: string, p: string)                                                                         |
+| + IsUserExist(u: string)                                                                                    |
+| + AddUser(username: string, password: string, fName: string, sName: string, doBirth: string, uType: string) |
+| + isEditType(username: string, password: string)                                                            |
+| + ShowUsers(u: string, p: string)                                                                           |
+--------------------------------------------------------------------------------------------------------------- 
+*/
 namespace MyEditor
 {
     class Users
@@ -17,12 +30,14 @@ namespace MyEditor
             Initial();
         }
 
+        // Initialize
         public void Initial()
         {
             usersList.Clear();
             if (!File.Exists("login.txt"))
             {
-                //不存在就新建一个文本文件,并写入一些内容
+                // If login.txt does not exist, 
+                // create a new text file and write something in it
                 using (StreamWriter sw = File.CreateText("login.txt"))
                 {
                     sw.WriteLine("");
@@ -40,6 +55,7 @@ namespace MyEditor
             
         }
 
+        // Return if the user exist in login.txt
         public bool IsUserExist(string u, string p)
         {
             bool isExist = false;
@@ -53,12 +69,13 @@ namespace MyEditor
             return isExist;
         }
 
+        // Return if the user exist in login.txt
         public bool IsUserExist(string u)
         {
             bool isExist = false;
             foreach (var VARIABLE in usersList)
             {
-                if (VARIABLE.ToString().Contains(u))
+                if (VARIABLE.ToString().Contains(u+","))
                 {
                     isExist = true;
                 }
@@ -66,6 +83,7 @@ namespace MyEditor
             return isExist;
         }
 
+        // Add new user to login.txt
         public void AddUser(string username, string password, string fName, string sName, string doBirth, string uType)
         {
             string line = username + "," + password + "," + uType + "," + fName + "," + sName + "," + doBirth;
@@ -75,6 +93,22 @@ namespace MyEditor
             }
         }
 
+        // Return is the user can edit
+        public bool isEditType(string username, string password)
+        {
+            bool isEditTypeExist = false;
+            foreach (var VARIABLE in usersList)
+            {
+                if (VARIABLE.ToString().Contains(username+","+password+","+"Edit"))
+                {
+                    isEditTypeExist = true;
+                }
+            }
+
+            return isEditTypeExist;
+        }
+
+        // Show all the users in login.txt file
         public String ShowUsers(string u, string p)
         {
             String users = "";

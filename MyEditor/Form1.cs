@@ -24,7 +24,7 @@ namespace MyEditor
             Users users = new Users();
             if (users.IsUserExist(username, password) && username != "" && password != "")
             {
-                Form editorForm = new EditorForm(username);
+                Form editorForm = new EditorForm(username, password);
                 editorForm.Show();
                 this.Hide();
             }

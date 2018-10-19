@@ -9,12 +9,33 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/*
+----------------------------------------------------
+|   EditorForm(username: string, password: string) |
+----------------------------------------------------
+| - username: string                               |
+| - usertype: string                               |
+| - fileName: string                               |
+----------------------------------------------------
+| + newFile()                                      |
+| + openFile()                                     |
+| + saveFile()                                     |
+| + saveAsFile()                                   |
+| + ChangeFontStyle(style: FontStyle)              |
+| + ChangeFont(fontName: string)                   |
+| + ChangeFontSize(fontSize: float)                |
+| + DoCut()                                        |
+| + DoCopy()                                       |
+| + DoPaste()                                      |
+----------------------------------------------------
+*/
 
 namespace MyEditor
 {
     public partial class EditorForm : Form
     {
         private string username = "";
+        private string usertype = "view";
         private string fileName = "";
 
         ///<summary>
@@ -58,7 +79,9 @@ namespace MyEditor
                         MessageBox.Show("Unsupported file.");
                     }
                 }
+                stream.Close();
             }
+            
 
             toolStripComboBox1.Text = "9";
             toolStripComboBox2.Text = "Consolas";
@@ -106,19 +129,19 @@ namespace MyEditor
 
         ///<summary>  
         ///Set font style: Bold, Italic, Underline  
-        ///</summary>  
-        /// <param name="style">事件触发后传参：字体格式类型</param>  
+        ///</summary>   
         private void ChangeFontStyle(FontStyle style)
         {
+            if (!usertype.Equals("Edit")) return;
             if (style != FontStyle.Bold && style != FontStyle.Italic &&
                 style != FontStyle.Underline)
-                throw new System.InvalidProgramException("字体格式错误");
-            RichTextBox tempRichTextBox = new RichTextBox();  //将要存放被选中文本的副本  
+                throw new System.InvalidProgramException("Wrong font style.");
+            RichTextBox tempRichTextBox = new RichTextBox();  // tempRichTextBox is used save the copy of the selected text
             int curRtbStart = richTextBox1.SelectionStart;
             int len = richTextBox1.SelectionLength;
             int tempRtbStart = 0;
             Font font = richTextBox1.SelectionFont;
-            if (len <= 1 && font != null) //与上边的那段代码类似，功能相同  
+            if (len <= 1 && font != null) 
             {
                 if (style == FontStyle.Bold && font.Bold ||
                     style == FontStyle.Italic && font.Italic ||
@@ -135,22 +158,21 @@ namespace MyEditor
                 return;
             }
             tempRichTextBox.Rtf = richTextBox1.SelectedRtf;
-            tempRichTextBox.Select(len - 1, 1); //选中副本中的最后一个文字  
-                                                //克隆被选中的文字Font，这个tempFont主要是用来判断  
-                                                //最终被选中的文字是否要加粗、去粗、斜体、去斜、下划线、去下划线  
+            tempRichTextBox.Select(len - 1, 1); // the last character of the selected text
+            // clone the selected text 
+            // set the font style
             Font tempFont = (Font)tempRichTextBox.SelectionFont.Clone();
 
-            //清空2和3  
             for (int i = 0; i < len; i++)
             {
-                tempRichTextBox.Select(tempRtbStart + i, 1);  //每次选中一个，逐个进行加粗或去粗  
+                tempRichTextBox.Select(tempRtbStart + i, 1);  // set the style for each part 
                 if (style == FontStyle.Bold && tempFont.Bold ||
                     style == FontStyle.Italic && tempFont.Italic ||
                     style == FontStyle.Underline && tempFont.Underline)
                 {
                     tempRichTextBox.SelectionFont =
                         new Font(tempRichTextBox.SelectionFont,
-                                 tempRichTextBox.SelectionFont.Style ^ style);
+                            tempRichTextBox.SelectionFont.Style ^ style);
                 }
                 else if (style == FontStyle.Bold && !tempFont.Bold ||
                          style == FontStyle.Italic && !tempFont.Italic ||
@@ -158,26 +180,26 @@ namespace MyEditor
                 {
                     tempRichTextBox.SelectionFont =
                         new Font(tempRichTextBox.SelectionFont,
-                                 tempRichTextBox.SelectionFont.Style | style);
+                            tempRichTextBox.SelectionFont.Style | style);
                 }
             }
             tempRichTextBox.Select(tempRtbStart, len);
-            richTextBox1.SelectedRtf = tempRichTextBox.SelectedRtf; //将设置格式后的副本拷贝给原型  
+            richTextBox1.SelectedRtf = tempRichTextBox.SelectedRtf; // return the copy back to the current text  
             richTextBox1.Select(curRtbStart, len);
         }
 
         /// <summary>  
         /// Set font, according to Font Combobox
         /// </summary>  
-        /// <param name="fontName">被选中的字体名</param>  
         private void ChangeFont(string fontName)
         {
+            if (!usertype.Equals("Edit")) return;
             if (fontName == string.Empty)
-                throw new System.Exception("字体名称参数错误，不能为空");
+                throw new System.Exception("The font name cannot be empty.");
 
-            RichTextBox tempRichTextBox = new RichTextBox();  //用于保存被选中文本的副本  
+            RichTextBox tempRichTextBox = new RichTextBox();  // tempRichTextBox is used save the copy of the selected text
 
-            //curRichTextBox是当前文本，即原型  
+            //curRichTextBox is the current text 
             int curRtbStart = richTextBox1.SelectionStart;
             int len = richTextBox1.SelectionLength;
             int tempRtbStart = 0;
@@ -190,7 +212,7 @@ namespace MyEditor
             }
 
             tempRichTextBox.Rtf = richTextBox1.SelectedRtf;
-            for (int i = 0; i < len; i++)  //逐个设置字体种类  
+            for (int i = 0; i < len; i++)  // set font for each part
             {
                 tempRichTextBox.Select(tempRtbStart + i, 1);
                 tempRichTextBox.SelectionFont =
@@ -198,7 +220,7 @@ namespace MyEditor
                         tempRichTextBox.SelectionFont.Style);
             }
 
-            //将副本内容插入到到原型中  
+            // return the copy back to the current text 
             tempRichTextBox.Select(tempRtbStart, len);
             richTextBox1.SelectedRtf = tempRichTextBox.SelectedRtf;
             richTextBox1.Select(curRtbStart, len);
@@ -208,11 +230,11 @@ namespace MyEditor
         /// <summary>  
         /// Set font size, according to Font Size Combobox  
         /// </summary>  
-        /// <param name="fontSize">被选中的字号</param>  
         private void ChangeFontSize(float fontSize)
         {
+            if (!usertype.Equals("Edit")) return;
             if (fontSize <= 0.0)
-                throw new InvalidProgramException("字号参数错误，不能小于等于0.0");
+                throw new InvalidProgramException("The number of font size should be bigger than 0.0.");
 
             RichTextBox tempRichTextBox = new RichTextBox();
 
@@ -247,6 +269,7 @@ namespace MyEditor
         /// </summary>
         private void DoCut()
         {
+            if (!usertype.Equals("Edit")) return;
             Clipboard.SetData(DataFormats.Rtf, richTextBox1.SelectedRtf);
             richTextBox1.SelectedRtf = "";
         }
@@ -256,6 +279,7 @@ namespace MyEditor
         /// </summary>
         private void DoCopy()
         {
+            if (!usertype.Equals("Edit")) return;
             Clipboard.SetData(DataFormats.Rtf, richTextBox1.SelectedRtf);
         }
 
@@ -264,13 +288,23 @@ namespace MyEditor
         /// </summary>
         private void DoPaste()
         {
+            if (!usertype.Equals("Edit")) return;
             richTextBox1.Paste();
         }
 
-        public EditorForm(string username)
+        public EditorForm(string username, string password)
         {
             this.username = username;
+            Users users = new Users();
             InitializeComponent();
+            richTextBox1.ReadOnly = true;
+            //richTextBox1.Enabled = false;
+            if (users.isEditType(username, password))
+            {
+                usertype = "Edit";
+                richTextBox1.ReadOnly = false;
+                //richTextBox1.Enabled = true;
+            }
         }
 
         private void EditorForm_Load(object sender, EventArgs e)
